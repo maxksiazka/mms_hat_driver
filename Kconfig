@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+
+menu "MMS HAT Management Subsystem"
+
+config MMS_HAT
+	bool "MMS HAT Generic Container Driver"
+	default y
+	depends on MMS_CHAINBUS
+	help
+	  Enable generic HAT parent container driver that claims slots 
+	  from the parent Chainbus controller.
+
+config MMS_HAT_INIT_PRIORITY
+	int "MMS HAT container initialization priority"
+	default 56
+	depends on MMS_HAT
+	help
+	  Init priority for HAT containers. Must run AFTER Chainbus init (60) 
+	  and BEFORE child Virtual Bus Bridges (60).
+
+config MMS_HAT_I2C_BRIDGE
+	bool "MMS HAT Virtual I2C Bridge Driver"
+	default y
+	depends on MMS_HAT
+	depends on I2C
+	help
+	  Enable virtual I2C bridge driver that routes transfers to 
+	  parent controller while managing slot CS lines.
+
+config MMS_HAT_I2C_BRIDGE_INIT_PRIORITY
+	int "MMS HAT I2C bridge initialization priority"
+	default 60
+	depends on MMS_HAT_I2C_BRIDGE
+	help
+	  Init priority for HAT I2C bridges. Must run AFTER HAT container init (50).
+
+config MMS_HAT_SPI_BRIDGE
+	bool "MMS HAT Virtual SPI Bridge Driver"
+	default y
+	depends on MMS_HAT
+	depends on SPI
+	help
+	  Enable virtual SPI bridge driver that routes transfers to 
+	  parent controller while managing slot CS lines.
+
+config MMS_HAT_SPI_BRIDGE_INIT_PRIORITY
+	int "MMS HAT SPI bridge initialization priority"
+	default 60
+	depends on MMS_HAT_SPI_BRIDGE
+	help
+	  Init priority for HAT SPI bridges. Must run AFTER HAT container init (50).
+
+endmenu

@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: Apache-2.0
+# dts/bindings/mms_hat/mms-hat,i2c-bridge.yaml
+
+description: MMS3 Slot I2C Controller Bridge
+
+compatible: "konar,mms-hat-i2c-bridge"
+
+include: [i2c-controller.yaml]
+
+# Tells Zephyr this node acts as an I2C bus for its sub-nodes
+
+properties:
+  i2c-bus:
+    type: phandle
+    required: true

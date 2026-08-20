@@ -1,0 +1,21 @@
+# SPDX-License-Identifier: Apache-2.0
+# dts/bindings/mms_hat/mms3,hat-base.yaml
+
+description: |
+  Abstract base schema for all MMS3 HAT expansion modules
+
+compatible: "konar,mms-hat"
+
+include: base.yaml
+
+properties:
+  reg:
+    type: array
+    description: |
+      Optional value, do what you want
+
+  position:
+    type: int
+    description: |
+      Optional explicit physical slot index (0..7).
+      If omitted, slot index is resolved at boot via runtime auto-discovery.

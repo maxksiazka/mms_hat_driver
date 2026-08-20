@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT
+description: MMS3 Virtual SPI Slot Bridge Controller
+
+compatible: "konar,mms-hat-spi-bridge"
+
+include: spi-controller.yaml
+
+
+properties:
+  spi-bus:
+    type: phandle
+    required: true
+    description: Physical parent SPI controller (e.g. &spi3)
+
+  cs-gpios:
+    type: phandle-array
+    required: false
+    description: Chip select GPIO line for this slot (if pin-driven)
