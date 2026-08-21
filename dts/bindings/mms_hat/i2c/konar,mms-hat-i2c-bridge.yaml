@@ -13,3 +13,5 @@ properties:
   i2c-bus:
     type: phandle
     required: true
+    description: |
+      Phandle to the physical I2C controller (e.g. &i2c0)
