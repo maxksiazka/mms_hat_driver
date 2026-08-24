@@ -11,11 +11,14 @@ include: base.yaml
 properties:
   reg:
     type: array
+    min: 0
+    max: 7
     description: |
-      Optional value, do what you want
+      Slot address for the MMS HAT module. The slot is a number from 0 to 7, representing the distance from the baseboard.
+      Omit for runtime detection of the slot address. If specified, the slot address must be unique for each HAT module.
 
-  position:
+  type-id:
     type: int
     description: |
-      Optional explicit physical slot index (0..7).
-      If omitted, slot index is resolved at boot via runtime auto-discovery.
+      Type ID of the MMS HAT module. This is a unique identifier for the module type, used for runtime detection and validation.
+      Either this or the reg property must be specified. If both are specified, the reg will be used for validation.
