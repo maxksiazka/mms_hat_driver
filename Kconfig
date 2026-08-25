@@ -50,4 +50,20 @@ config MMS_HAT_SPI_BRIDGE_INIT_PRIORITY
 	help
 	  Init priority for HAT SPI bridges. Must run AFTER HAT container init (50).
 
+config MMS_HAT_UART_BRIDGE
+	bool "MMS HAT Virtual UART Bridge Driver"
+	default y
+	depends on MMS_HAT
+	depends on SERIAL
+	help
+	  Enable virtual UART bridge driver that routes transfers to 
+	  parent controller while managing slot CS lines.
+
+config MMS_HAT_UART_BRIDGE_INIT_PRIORITY
+	int "MMS HAT UART bridge initialization priority"
+	default 60
+	depends on MMS_HAT_UART_BRIDGE
+	help
+	  Init priority for HAT UART bridges. Must run AFTER HAT container init (50).
+
 endmenu
