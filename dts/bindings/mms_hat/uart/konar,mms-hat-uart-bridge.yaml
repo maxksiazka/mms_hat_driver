@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# dts/bindings/mms_hat/mms-hat,uart-bridge.yaml
+
+description: MMS3 Slot UART Controller Bridge
+
+compatible: "konar,mms-hat-uart-bridge"
+
+include: uart-controller.yaml
+
+
+properties:
+  uart-bus:
+    type: phandle
+    required: true
+    description: |
+      Phandle to the physical UART controller (e.g. &uart0)
