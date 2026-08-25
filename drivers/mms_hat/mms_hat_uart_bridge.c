@@ -516,6 +516,7 @@ static const struct uart_driver_api mms_hat_uart_api = {
     .configure = mms_hat_uart_configure,
     .config_get = mms_hat_uart_config_get,
 #endif
+#if 0 // Currently, the chainbus architecture does not allow interrupt-driven or async UART operations
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
     .fifo_fill = mms_hat_uart_fifo_fill,
     .fifo_read = mms_hat_uart_fifo_read,
@@ -550,6 +551,7 @@ static const struct uart_driver_api mms_hat_uart_api = {
     .tx_u16 = mms_hat_uart_tx_u16,
     .rx_enable_u16 = mms_hat_uart_rx_enable_u16,
     .rx_buf_rsp_u16 = mms_hat_uart_rx_buf_rsp_u16,
+#endif
 #endif
 #endif
 };
