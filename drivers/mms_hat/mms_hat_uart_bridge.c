@@ -97,7 +97,7 @@ static int mms_hat_uart_config_get(const struct device* dev, struct uart_config*
     return ret;
 }
 #endif /* CONFIG_UART_USE_RUNTIME_CONFIGURE */
-
+#if 0
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
 static int mms_hat_uart_fifo_fill(const struct device* dev, const uint8_t* tx_data, int size) {
     const struct mms_hat_uart_config* cfg = dev->config;
@@ -507,6 +507,7 @@ static int mms_hat_uart_rx_buf_rsp_u16(const struct device* dev, uint16_t* buf, 
 }
 #endif /* CONFIG_UART_WIDE_DATA */
 #endif /* CONFIG_UART_ASYNC_API */
+#endif
 
 static const struct uart_driver_api mms_hat_uart_api = {
     .poll_in = mms_hat_uart_poll_in,
